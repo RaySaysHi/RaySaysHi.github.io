@@ -20,6 +20,50 @@
   .project-image {
     max-width: 100% !important;
   }
+  
+  /* Critical fix for hamburger menu visibility on mobile */
+  .navbar-toggle {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    float: right !important;
+    padding: 9px 10px !important;
+    margin-top: 8px !important;
+    margin-right: 15px !important;
+    margin-bottom: 8px !important;
+    border: 1px solid #333 !important;
+    background-color: #444 !important;
+    border-radius: 4px !important;
+    z-index: 1000 !important;
+  }
+  
+  .navbar-toggle .icon-bar {
+    display: block !important;
+    width: 22px !important;
+    height: 2px !important;
+    border-radius: 1px !important;
+    background-color: white !important;
+    margin-top: 4px !important;
+  }
+  
+  /* Make sure the navbar header is visible */
+  .navbar-header {
+    width: 100% !important;
+    min-height: 50px !important;
+    display: block !important;
+  }
+  
+  /* Make sure the dropdown menu is visible when open */
+  .navbar-collapse.in,
+  #navbar.in {
+    display: block !important;
+    height: auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    overflow-y: auto !important;
+    max-height: 500px !important;
+  }
 }
 
 /* General improvements */

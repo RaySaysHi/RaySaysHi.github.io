@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+<title>Raymond Ding's Portfolio</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/darkly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/fontawesome/css/all.css" rel="stylesheet" />
+<link href="site_libs/fontawesome/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:50%;
+}
+.tabbed-pane {
+  padding-top: 120px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+
+.rightside {
+  float: right;
+  position: relative;
+  top: 70px;
+  left: 0px;
+  width: 550px;
+  height: 5px;
+  font-size: 18px;
+
+}
+
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Raymond Ding's Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa-solid fa-house-chimney"></span>
+     
+    Home
+  </a>
+</li>
+<li>
+  <a href="projects.html">
+    <span class="fa fa-folder-open"></span>
+     
+    Projects
+  </a>
+</li>
+<li>
+  <a href="CV.html">
+    <span class="fa fa-file"></span>
+     
+    Resume
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/RaySaysHi">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="mailto:raymondding@example.com">
+    <span class="fa fa-envelope-square"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+</div>
+
+
+<hr />
+
+<div id="washington-dc-housing-market-analysis" class="section level2">
+<h2>Washington, D.C. Housing Market Analysis <i class="fab fa-python"></i></h2>
+<p><strong>GitHub Repository:</strong> <a href="https://github.com/RaySaysHi/capstone-project">https://github.com/RaySaysHi/capstone-project</a></p>
+
+<p>This comprehensive analysis of the Washington, D.C. housing market from 2000-2024 examines key economic factors influencing housing prices and develops predictive models to forecast market trends.</p>
+
+<p><strong>Key Findings:</strong></p>
+<ul>
+<li>The DC housing market has experienced distinct market cycles over the 24-year period, including a housing boom (2000-2006), bust (2006-2009), stabilization (2009-2012), recovery (2012-2019), pandemic boom (2020-2021), and rate hike era (2022-2024).</li>
+<li>Housing prices in DC show strong positive correlations with CPI (0.87), median household income (0.85), and population growth (0.64).</li>
+<li>Time series analysis confirms non-stationarity in housing prices requiring differencing for modeling, and reveals significant seasonal patterns with peaks in June and troughs in January.</li>
+<li>Unemployment rate changes lead housing price movements by approximately 10 months (correlation: -0.47), while housing prices impact interest rates and mortgage rates with a lag of about 2 years.</li>
+<li>Linear regression models with economic indicators significantly outperform time series and machine learning approaches for housing price prediction.</li>
+</ul>
+
+<p><strong>Modeling Approach:</strong></p>
+<ul>
+<li>Implemented multiple modeling techniques including standard linear regression, Lasso, Ridge, ARIMA, SARIMA, and machine learning models (Random Forest, Gradient Boosting, XGBoost, LightGBM)</li>
+<li>Standard linear regression achieved the best performance with an R² of 0.9467 and MAPE of just 1.62%</li>
+<li>Feature importance analysis revealed that income-related variables are the strongest predictors of housing prices</li>
+</ul>
+
+<hr />
+
+<div id="unemployment-trends-modeling" class="section level2">
+<h2>Unemployment Trends Modeling <i class="fab fa-python"></i></h2>
+<p><strong>GitHub Repository:</strong> <a href="https://github.com/RaySaysHi/unemployment-trends-modeling">https://github.com/RaySaysHi/unemployment-trends-modeling</a></p>
+<p><strong>Colab Notebook:</strong> <a href="https://colab.research.google.com/drive/1KoRlQNxyFQgIuNP5uiT8SOXodeiMFnce?usp=sharing">View on Google Colab</a></p>
+
+<p>This project involves preparing and analyzing employment and unemployment data from the U.S. Bureau of Labor Statistics (BLS) to predict unemployment trends over time.</p>
+
+<p><strong>Project Overview:</strong></p>
+<ul>
+<li>Cleaned and standardized time series data from various economic indicators</li>
+<li>Reshaped data from wide to long format for analysis</li>
+<li>Implemented machine learning models to predict unemployment rates</li>
+<li>Compared model performance between Linear Regression, Random Forest, and Support Vector Regression</li>
+</ul>
+
+<p><strong>Data Sources:</strong></p>
+<ul>
+<li>Unemployment Rate</li>
+<li>Civilian Labor Force</li>
+<li>Civilian Employment</li>
+<li>Civilian Unemployment</li>
+<li>Nonfarm Employment</li>
+<li>Nonfarm Business Productivity</li>
+<li>Nonfarm Business Unit Labor Costs</li>
+<li>Nonfarm Business Real Hourly Compensation</li>
+<li>Consumer Price Index</li>
+</ul>
+
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Feature engineering including interaction terms, lagged features, and rolling averages</li>
+<li>Hyperparameter tuning for Random Forest and SVR models</li>
+<li>Time-based train-test split to simulate real-world forecasting scenarios</li>
+<li>Comparative analysis of model performance</li>
+</ul>
+
+<p><strong>Model Performance:</strong></p>
+<ul>
+<li>Linear Regression and SVR performed well, even with the 2020 pandemic anomalies</li>
+<li>Random Forest struggled with the initial COVID-19 unemployment spike but improved with more stable data</li>
+<li>Feature engineering significantly improved SVR performance</li>
+</ul>
+
+<hr />
+
+<div id="interactive-dashboard-on-governance-and-conflict" class="section level2">
+<h2>Interactive Dashboard on Governance and Conflict in Brazil <i class="fab fa-r-project"></i></h2>
+
+<p>This Shiny application offers an interactive exploration of governance trends and conflict events in Brazil, leveraging datasets from the V-Dem Dataset and the Uppsala Conflict Data Program (UCDP).</p>
+
+<p><strong>Dashboard Components:</strong></p>
+<ul>
+<li><strong>Interactive Map:</strong> Displays conflict events in Brazil with markers showing location, date, and number of deaths. Users can hover over markers for brief descriptions or click for detailed information.</li>
+<li><strong>Dynamic Line Chart:</strong> Visualizes governance indicators over time, including Polyarchy, Corruption Index, Freedom of Expression, and GDP Per Capita.</li>
+<li><strong>Synchronized Controls:</strong> Date range slider controls both map and chart for consistent temporal analysis.</li>
+</ul>
+
+<p><strong>Data Insights:</strong></p>
+<ul>
+<li>Correlation between governance and conflict patterns is visible when examining both visualizations.</li>
+<li>The geographical distribution of conflicts highlights regional disparities in governance and development.</li>
+<li>The extensive date range (1921-2021) provides historical context for current governance and conflict issues.</li>
+<li>Economic indicators like GDP Per Capita help explore the relationship between economic conditions and political stability.</li>
+</ul>
+
+<p>This interactive platform enables users to explore and understand the complex interplay between governance indicators and conflict events in Brazil, serving as a valuable tool for researchers, educators, and anyone interested in Brazilian politics.</p>
+
+<hr />
+
+<div id="google-analytics-api-data-pipeline" class="section level2">
+<h2>Google Analytics and API Data Pipeline to PostgreSQL <i class="fab fa-python"></i></h2>
+<p><strong>GitHub Repository:</strong> <a href="https://github.com/RaySaysHi/Google_Analytics_and_API_Dog_Data_Into_PostgreSQL">https://github.com/RaySaysHi/Google_Analytics_and_API_Dog_Data_Into_PostgreSQL</a></p>
+
+<p>This project contains scripts to set up a data pipeline that extracts data from Google Analytics and an API, then loads it into a PostgreSQL database. I developed this solution during my time as a Data Analyst at Endeverus, where I needed to expand my role to include data engineering tasks.</p>
+
+<p><strong>Features:</strong></p>
+<ul>
+<li>Extract data from Google Analytics 4 (GA4) properties</li>
+<li>Extract user data from a REST API with JWT authentication</li>
+<li>Store data in a PostgreSQL database</li>
+<li>Configurable environment variables for secure credential management</li>
+<li>Automated ETL processes for regular data updates</li>
+</ul>
+
+<p><strong>Implementation Details:</strong></p>
+<ul>
+<li>Created robust data pipeline scripts that handle authentication, data extraction, transformation, and loading</li>
+<li>Developed SQL schema for efficient data storage and retrieval</li>
+<li>Implemented error handling and logging for reliable operation</li>
+<li>Used environment variables to secure sensitive credentials</li>
+</ul>
+
+<p>This template can be customized for various projects to help manage and analyze data from Google Analytics and API sources. The repository includes detailed documentation on setup and customization.</p>
+
+<hr />
+
+<center>
+<a href="mailto:raymondding@example.com" class="email">raymondding@example.com</a>
+</center>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

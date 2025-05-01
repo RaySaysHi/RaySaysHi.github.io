@@ -338,37 +338,66 @@ $(document).ready(function () {
 
 <hr />
 
-<div id="washington-dc-housing-market-analysis" class="section level2">
-<h2>Washington, D.C. Housing Market Analysis <i class="fab fa-python"></i></h2>
-<p><strong>GitHub Repository:</strong> <a href="https://github.com/RaySaysHi/capstone-project">https://github.com/RaySaysHi/capstone-project</a></p>
+<div id="dc-housing-forecasting-comparison" class="section level2">
+    <h2>Comparative Analysis of DC Housing Market Forecasting Models <i class="fab fa-python"></i></h2>
 
-<p>This comprehensive analysis of the Washington, D.C. housing market from 2000-2024 examines key economic factors influencing housing prices and develops predictive models to forecast market trends.</p>
+    <p><strong>GitHub Repository:</strong> <a href="https://github.com/GW-datasci/25-spring-rding/" target="_blank" rel="noopener noreferrer">https://github.com/GW-datasci/25-spring-rding/</a></p>
+    <p>
+        <strong><a href="docs/Capstone_Report.pdf" target="_blank" rel="noopener noreferrer">Read the Full Report (PDF)</a></strong> |
+        <strong><a href="docs/Capstone_Slides.pdf" target="_blank" rel="noopener noreferrer">View Presentation Slides (PDF)</a></strong>
+    </p>
 
-<p><strong>Key Findings:</strong></p>
-<ul>
-<li>The DC housing market has experienced distinct market cycles over the 24-year period, including a housing boom (2000-2006), bust (2006-2009), stabilization (2009-2012), recovery (2012-2019), pandemic boom (2020-2021), and rate hike era (2022-2024).</li>
-<li>Housing prices in DC show strong positive correlations with CPI (0.87), median household income (0.85), and population growth (0.64).</li>
-<li>Time series analysis confirms non-stationarity in housing prices requiring differencing for modeling, and reveals significant seasonal patterns with peaks in June and troughs in January.</li>
-<li>Unemployment rate changes lead housing price movements by approximately 10 months (correlation: -0.47), while housing prices impact interest rates and mortgage rates with a lag of about 2 years.</li>
-<li>Linear regression models with economic indicators significantly outperform time series and machine learning approaches for housing price prediction.</li>
-</ul>
+    <p>This capstone project compared the forecasting accuracy of various time series (ARIMA) and machine learning (Lasso, ElasticNet, SVR, LSTM) models for predicting the quarterly All-Transactions House Price Index for the Washington-Arlington-Alexandria MSA (1990-2024). The primary goal was to identify the best-performing model using rigorous walk-forward validation and Relative Mean Squared Error (RelMSE) against a historical mean benchmark, and generate an 8-quarter forecast (through Q4 2026).</p>
 
-<p><strong>Modeling Approach:</strong></p>
-<ul>
-<li>Implemented multiple modeling techniques including standard linear regression, Lasso, Ridge, ARIMA, SARIMA, and machine learning models (Random Forest, Gradient Boosting, XGBoost, LightGBM)</li>
-<li>Standard linear regression achieved the best performance with an R² of 0.9467 and MAPE of just 1.62%</li>
-<li>Feature importance analysis revealed that income-related variables are the strongest predictors of housing prices</li>
-</ul>
+    <p><strong>Key Findings & Approach:</strong></p>
+    <ul>
+        <li>Data from BLS, Census, FRED, and Freddie Mac was collected, preprocessed (resampling, interpolation, AutoARIMA imputation), and transformed (percentage change).</li>
+        <li>Feature engineering included lagged variables and dummy variables for the 2008 crisis and COVID-19 pandemic.</li>
+        <li>Walk-forward validation (1990-2015 train, 2016-2024 test) was used for evaluation against a historical mean benchmark.</li>
+        <li>Support Vector Regression (SVR), using only lags 1-3 of the target variable (informed by PACF analysis), consistently demonstrated the best performance relative to the benchmark across most forecast horizons.</li>
+        <li>Lasso and ElasticNet feature selection also highlighted the strong autoregressive nature of the House Index (lags 1 and 3 being most important).</li>
+        <li>VECM and VAR models faced challenges with residual diagnostics on this dataset.</li>
+        <li>The final SVR forecast predicts continued, potentially moderating, growth through Q4 2026.</li>
+    </ul>
 
-<center>
-<img src="docs/model_comparison_rmse.png" class="project-image" />
-<p class="project-caption">Model Comparison by RMSE (Lower is Better)</p>
-</center>
+    <center>
+        <img src="docs/Capstone_Poster.png" alt="Project Poster summarizing methodology and findings" class="project-image" />
+        <p class="project-caption">Project Poster: Methodology, Key Findings, and SVR Forecast</p>
+    </center>
 
-<center>
-<img src="docs/linear_regression_predictions.png" class="project-image" />
-<p class="project-caption">Linear Regression Model Predictions vs Actual Housing Prices</p>
-</center>
+    </div>
+
+<hr />
+
+<div id="lumber-delivery-analytics" class="section level2">
+  <h2>Lumber Delivery Predictive Analytics <i class="fab fa-python"></i></h2>
+
+  <p><strong>GitHub Repository:</strong> <a href="https://github.com/RaySaysHi/Lumber-Project" target="_blank" rel="noopener noreferrer">https://github.com/RaySaysHi/Lumber-Project</a></p>
+  <p>
+      <strong><a href="docs/Lumber_Slides.pdf" target="_blank" rel="noopener noreferrer">View Presentation Slides (PDF)</a></strong>
+  </p>
+
+  <p>This project analyzed historical lumber delivery tracking data (truck allocations, delivery sizes) alongside economic indicators (FRED: DFF, GASREGW, WPU081) to identify key factors influencing delivery rescheduling. An Elastic Net regression model was developed using time-series cross-validation to predict the daily `Reschedule_Rate` and understand its drivers, aiming to provide insights for optimizing operational planning.</p>
+
+  <p><strong>Key Findings & Approach:</strong></p>
+  <ul>
+      <li>Combined delivery database records (2022-2025) with aligned FRED economic data.</li>
+      <li>Engineered features including KPIs (Reschedule Rate, Truck Utilization), seasonal decomposition components, differenced series for non-stationary variables, and lagged variables based on ACF/PACF analysis.</li>
+      <li>Utilized Elastic Net regression for its ability to handle multicollinearity and perform feature selection.</li>
+      <li>Tuned hyperparameters (`alpha`, `l1_ratio`) using Time Series Split cross-validation on the training data.</li>
+      <li>Validated the final model on a hold-out test set (last 20% of data), achieving an R² of 0.41.</li>
+      <li>Identified key drivers including trend/seasonal components of rescheduling, lagged operational metrics (delivery sizes/quantities), and truck accuracy measures.</li>
+  </ul>
+
+  <center>
+      <img src="docs/Lumber_Test.png" alt="Plot showing actual vs predicted reschedule rate on the test set" class="project-image" style="margin-bottom: 10px; max-width: 80%; height: auto;" />
+      <p class="project-caption" style="margin-bottom: 25px;">Model Performance: Actual vs. Predicted Reschedule Rate (Out-of-Sample Test Set)</p>
+
+      <img src="docs/Lumber_Feature_Importance.png" alt="Bar chart showing top features influencing reschedule rate" class="project-image" style="margin-bottom: 10px; max-width: 80%; height: auto;" />
+      <p class="project-caption">Key Drivers: Top Features Influencing Reschedule Rate (Elastic Net Coefficients)</p>
+  </center>
+
+</div>
 
 <hr />
 
